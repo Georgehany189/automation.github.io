@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="app_name">بناء وكلاء الذكاء الاصطناعي</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="app_name">بناء وكلاء الذكاء الاصطناعي</h1>
+            <p data-i18n="welcome_message">مرحباً بك في منصة أتمتة وكلاء الذكاء الاصطناعي!</p>
+            <div class="language-selector">
+                <label for="lang-select" data-i18n="language_selector_label">اللغة:</label>
+                <select id="lang-select">
+                    <option value="en">English</option>
+                    <option value="ar" selected>العربية</option>
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <section id="agent-creation-form" class="card">
+                <h2 data-i18n="create_agent_button">إنشاء وكيل ذكاء اصطناعي جديد</h2>
+                <form id="create-agent-form">
+                    <div class="form-group">
+                        <label for="agent-name" data-i18n="agent_name_label">اسم الوكيل:</label>
+                        <input type="text" id="agent-name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="agent-purpose" data-i18n="agent_purpose_label">الغرض من الوكيل:</label>
+                        <textarea id="agent-purpose" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group build-method-selection">
+                        <label data-i18n="build_method_label">طريقة البناء:</label>
+                        <div>
+                            <input type="radio" id="method-code" name="build_method" value="code" checked>
+                            <label for="method-code" data-i18n="method_code">بالبرمجة (JSON)</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="method-no-code" name="build_method" value="no-code">
+                            <label for="method-no-code" data-i18n="method_no_code">بدون برمجة</label>
+                        </div>
+                    </div>
+
+                    <div id="code-builder" class="form-group">
+                        <label for="automation-steps-code" data-i18n="automation_steps_label">خطوات الأتمتة (JSON):</label>
+                        <textarea id="automation-steps-code" rows="8" placeholder='مثال: [{"action": "call_llm", "prompt": "إنشاء خطة عمل"}, {"action": "حفظ_في_قاعدة_البيانات"}]'></textarea>
+                    </div>
+
+                    <div id="no-code-builder" class="form-group hidden">
+                        <label data-i18n="no_code_steps_label">باني خطوات الأتمتة:</label>
+                        <div id="no-code-steps-container">
+                            </div>
+                        <button type="button" id="add-no-code-step" class="add-step-button" data-i18n="add_no_code_step">أضف خطوة</button>
+                    </div>
+
+                    <button type="submit" data-i18n="submit_button">بناء الوكيل</button>
+                </form>
+                <div id="status-message" class="status-message"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
