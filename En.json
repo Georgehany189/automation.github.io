@@ -1,6 +1,6 @@
 {
-  "app_name": "AI Agent Builder",
-  "welcome_message": "Welcome to the AI Agent Automation Platform!",
+  "app_name": "Zoop",
+  "welcome_message": "Welcome to the Zoop AI Agent Automation Platform!",
   "create_agent_button": "Create New AI Agent",
   "agent_name_label": "Agent Name:",
   "agent_purpose_label": "Agent Purpose:",

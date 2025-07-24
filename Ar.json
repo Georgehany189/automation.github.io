@@ -1,6 +1,6 @@
 {
-  "app_name": "بناء وكلاء الذكاء الاصطناعي",
-  "welcome_message": "مرحباً بك في منصة أتمتة وكلاء الذكاء الاصطناعي!",
+  "app_name": "Zoop",
+  "welcome_message": "مرحباً بك في منصة Zoop لأتمتة وكلاء الذكاء الاصطناعي!",
   "create_agent_button": "إنشاء وكيل ذكاء اصطناعي جديد",
   "agent_name_label": "اسم الوكيل:",
   "agent_purpose_label": "الغرض من الوكيل:",
