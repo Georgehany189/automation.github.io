@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: your_database
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: ./ai_agent_backend # Path to your Flask app directory
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      DATABASE_URL: postgresql://your_user:your_password@db:5432/your_database
+      REDIS_BROKER_URL: redis://redis:6379/0
+    depends_on:
+      - db
+      - redis
+
+  celery_worker:
+    build: ./ai_agent_backend
+    restart: always
+    command: celery -A app.celery worker --loglevel=info
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      DATABASE_URL: postgresql://your_user:your_password@db:5432/your_database
+      REDIS_BROKER_URL: redis://redis:6379/0
+    depends_on:
+      - backend
+
+  frontend:
+    build: ./ai-agent-builder # Path to your React app directory
+    restart: always
+    ports:
+      - "3000:3000" # Or configure Nginx to serve it
+    environment:
+      REACT_APP_BACKEND_API_URL: http://localhost:5000/api # Adjust for Nginx if used
+    depends_on:
+      - backend
+
+  nginx: # Optional: For a more robust production setup
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443" # For HTTPS
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./frontend/build:/usr/share/nginx/html # Serve React build files
+    depends_on:
+      - frontend
+      - backend
+
+volumes:
+  postgres_data:

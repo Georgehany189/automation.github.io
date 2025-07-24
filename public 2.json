@@ -1,0 +1,11 @@
+{
+  "app_name": "AI Agent Builder",
+  "welcome_message": "Welcome to the AI Agent Automation Platform!",
+  "create_agent_button": "Create New AI Agent",
+  "agent_name_label": "Agent Name",
+  "agent_purpose_label": "Agent Purpose",
+  "automation_steps_label": "Automation Steps (JSON)",
+  "submit_button": "Build Agent",
+  "agent_creation_success": "AI Agent creation initiated successfully! Check status.",
+  "language_selector_label": "Language"
+}

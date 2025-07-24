@@ -1,0 +1,11 @@
+{
+  "app_name": "بناء وكلاء الذكاء الاصطناعي",
+  "welcome_message": "مرحباً بك في منصة أتمتة وكلاء الذكاء الاصطناعي!",
+  "create_agent_button": "إنشاء وكيل ذكاء اصطناعي جديد",
+  "agent_name_label": "اسم الوكيل",
+  "agent_purpose_label": "الغرض من الوكيل",
+  "automation_steps_label": "خطوات الأتمتة (JSON)",
+  "submit_button": "بناء الوكيل",
+  "agent_creation_success": "تم بدء إنشاء وكيل الذكاء الاصطناعي بنجاح! تحقق من الحالة.",
+  "language_selector_label": "اللغة"
+}
